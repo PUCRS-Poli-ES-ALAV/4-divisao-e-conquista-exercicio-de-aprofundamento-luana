@@ -8,7 +8,8 @@ mescle (faça o merge) das duas metades para ter o vetor ordenado.
 Assim:
 
 implemente o algortimo abaixo;
-teste-o para vetores de inteiros com conteúdos randômicos, e tamanho 32, 2048 e 1.048.576. Nestes testes, contabilize o número de iterações que o algoritmo executa, e o tempo gasto;
+teste-o para vetores de inteiros com conteúdos randômicos, e tamanho 32, 2048 e 1.048.576. Nestes testes,
+ contabilize o número de iterações que o algoritmo executa, e o tempo gasto;
 MERGE-SORT(L: List with n elements) : Ordered list with n elements
     IF (list L has one element)
         RETURN L.
@@ -56,7 +57,10 @@ def merge_sort(l):
     
     return merge(left, right)
 
-
-random_list = [random.randint(1, 10000) for _ in range(32)]
-sorted_list = merge_sort(random_list)
-print(f"Lista: {sorted_list}")
+tam = [32,2048,1048576]
+for t in tam:
+    iterations = 0
+    random_list = [random.randint(1, 10000) for _ in range(t)]
+    sorted_list = merge_sort(random_list)
+    print(f"Lista: {sorted_list}")
+    print(f"Iteracoes: {iterations}")
