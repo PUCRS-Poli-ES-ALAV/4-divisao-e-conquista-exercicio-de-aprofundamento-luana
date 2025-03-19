@@ -57,10 +57,14 @@ def merge_sort(l):
     
     return merge(left, right)
 
+# 2048 e 1048576 não foi possivel realizar a operação
 tam = [32,2048,1048576]
 for t in tam:
     iterations = 0
+    start_time = time.time()
     random_list = [random.randint(1, 10000) for _ in range(t)]
     sorted_list = merge_sort(random_list)
+    end_time = time.time()
     print(f"Lista: {sorted_list}")
     print(f"Iteracoes: {iterations}")
+    print(f"Tempo de execucao: {end_time - start_time:.6f} segundos")

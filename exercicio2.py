@@ -16,11 +16,25 @@ long maxVal1(long A[], int n) {
 
 '''
 
+import random
+import time
+
 def maxVal1(A):
+    global iterations
     max = A[0]
     for i in range(1,len(A)): 
+        iterations += 1
         if(A[i] > max ):
            max = A[i]
     return max
 
-print(maxVal1([556,6,22,0,2,86,32,8647,1,531]))
+tam = [32,2048,1048576]
+for t in tam:
+    iterations = 0
+    start_time = time.time()
+    random_list = [random.randint(1, 10000) for _ in range(t)]
+    max_value = maxVal1(random_list)
+    end_time = time.time()
+    print("Valor Maximo: ", max_value)
+    print("Tempo gasto: ", end_time - start_time)
+    print("Iterações: ", iterations)

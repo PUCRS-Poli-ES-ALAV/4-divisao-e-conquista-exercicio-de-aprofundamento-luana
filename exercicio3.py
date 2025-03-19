@@ -16,7 +16,13 @@ long maxVal2(long A[], int init, int end) {
          }
 }
 '''
+import random
+import time
+
+
 def maxVal2(A, init, end): 
+    global iterations
+    iterations += 1
     if (end - init <= 1):
         return max(A[init], A[end])
     else:
@@ -25,5 +31,13 @@ def maxVal2(A, init, end):
           v2 = maxVal2(A,m+1,end) 
           return max(v1,v2)
          
-
-print(maxVal2([1,2,3,4,5],0,4))
+tam = [32,2048,1048576]
+for t in tam:
+    iterations = 0
+    start_time = time.time()
+    random_list = [random.randint(1, 10000) for _ in range(t)]
+    max_value = maxVal2(random_list,0,len(random_list)-1)
+    end_time = time.time()
+    print("Valor Maximo: ", max_value)
+    print("Tempo gasto: ", end_time - start_time)
+    print("Iterações: ", iterations)
